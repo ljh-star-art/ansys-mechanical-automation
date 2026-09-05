@@ -1,0 +1,29 @@
+# Python temporary files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ANSYS generated project/cache data
+**/beam_files/
+**/*_files/
+*.mechdb
+*.rst
+*.engd
+*.err
+*.out
+*.mntr
+*.DSP
+*.PCS
+*.aapresults
+*.aapr
+*.lock
+
+# Keep project-level standardized results
+!Bending_3D_Beam/results/
+!Bending_3D_Beam/results/latest_results.json
+
+# Local logs and editor files
+*.log
+.vscode/
+.idea/

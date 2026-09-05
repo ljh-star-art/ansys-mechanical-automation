@@ -1,0 +1,2 @@
+ansys-mechanical-core
+mcp>=2,<3
