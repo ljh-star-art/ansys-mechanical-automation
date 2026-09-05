@@ -122,6 +122,8 @@ read_latest_results
 1. 使用 Git LFS 上传必要的 `SYS.mechdb` 和相关模型文件；
 2. 提供初始化步骤，让用户先在 Workbench 中打开 `beam.wbpj` 并生成对应数据库。
 
+详细初始化步骤见 `Bending_3D_Beam\模型初始化.md`。
+
 ## 注意事项
 
 - `run_static.py` 只能在 Mechanical 内部 Python 环境中执行；
