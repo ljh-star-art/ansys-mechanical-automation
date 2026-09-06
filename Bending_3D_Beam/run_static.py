@@ -1,7 +1,11 @@
 import os
 
 mesh = Model.Mesh
-element_size = Quantity(0.01, "m")
+try:
+    element_size_m
+except NameError:
+    element_size_m = 0.01
+element_size = Quantity(element_size_m, "m")
 mesh.ElementSize = element_size
 mesh.GenerateMesh()
 

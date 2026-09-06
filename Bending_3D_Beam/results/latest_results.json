@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "element_size": "0.01 [m]",
-  "max_total_deformation": "5.5702551009067274E-05 [m]",
-  "max_equivalent_stress": "2388484.4739880539 [Pa]"
+  "element_size": "0.005 [m]",
+  "max_total_deformation": "5.5714053933429455E-05 [m]",
+  "max_equivalent_stress": "3068113.2682988062 [Pa]"
 }
