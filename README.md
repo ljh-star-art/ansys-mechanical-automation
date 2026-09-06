@@ -37,6 +37,32 @@ mechanical-automation/
 python -m pip install -r requirements.txt
 ```
 
+## 虚拟环境
+
+项目推荐在根目录使用一个统一的虚拟环境，所有算例共享同一套 PyMechanical 和 MCP 依赖。创建并激活：
+
+```powershell
+C:\Pyth0n31210\python.exe -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+如果 PowerShell 阻止激活脚本，可以不激活，直接使用虚拟环境解释器：
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe .\Bending_3D_Beam\run_pipeline.py
+```
+
+`.venv` 已加入 `.gitignore`，不会上传到 GitHub。克隆仓库后，每台电脑都应在本地重新创建自己的 `.venv`。
+
+安装依赖后，MCP Server 也应改用虚拟环境中的 Python 重新注册：
+
+```powershell
+C:\Users\luo\AppData\Roaming\npm\codex.cmd mcp remove ansys-mechanical
+C:\Users\luo\AppData\Roaming\npm\codex.cmd mcp add ansys-mechanical -- "D:\\vibe_coding\\Ansys\\Ansys_Mechancal\\mechanical-automation\\.venv\\Scripts\\python.exe" "D:\\vibe_coding\\Ansys\\Ansys_Mechancal\\mechanical-automation\\mcp_server.py"
+```
+
 ## 运行 PyMechanical 连通性测试
 
 ```powershell
