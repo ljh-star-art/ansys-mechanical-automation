@@ -1,6 +1,7 @@
 import json
 import re
 from pathlib import Path
+from case_spec import CaseSpec
 
 
 RESULT_FILE = (
@@ -24,8 +25,7 @@ def main():
 
     with RESULT_FILE.open("r", encoding="utf-8") as stream:
         data = json.load(stream)
-    with CONFIG_FILE.open("r", encoding="utf-8") as stream:
-        config = json.load(stream)
+    case_spec = CaseSpec.from_file(CONFIG_FILE)
 
     if data.get("status") != "success":
         raise RuntimeError("Mechanical solve did not report success")
@@ -36,8 +36,11 @@ def main():
     print("Result file:", RESULT_FILE)
     print("Maximum deformation (m):", deformation)
     print("Maximum equivalent stress (Pa):", stress)
+    print("Load (N):", case_spec.load_value_n)
+    print("Load direction:", case_spec.load_direction)
+    print("Constraint:", case_spec.constraint)
 
-    stress_limit = float(config["stress_limit_pa"])
+    stress_limit = case_spec.stress_limit_pa
     print("Stress limit (Pa):", stress_limit)
     if stress > stress_limit:
         print("Decision: stress limit exceeded")

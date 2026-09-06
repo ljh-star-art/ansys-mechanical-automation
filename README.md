@@ -157,3 +157,5 @@ read_latest_results
 - `beam_files` 不应手动编辑；
 - `results/latest_results.json` 是项目级标准结果，可提交用于示例和回归测试；
 - `transport_mode="insecure"` 仅用于本机测试，不建议用于远程或不可信网络。
+- 当前 `case_config.json` 已保存载荷、方向和约束字段，并传入求解上下文；实际修改 Mechanical 中已有载荷对象前，需要先确认模型树中的载荷对象名称和 API 属性。
+- 当前版本的 `load_value_n`、`load_direction` 和 `constraint` 已完成输入建模、校验和日志记录，但尚未自动修改已有 Mechanical 载荷/约束对象；网格参数已实际用于求解。
