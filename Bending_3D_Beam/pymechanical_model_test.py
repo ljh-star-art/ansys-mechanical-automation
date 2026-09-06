@@ -39,7 +39,7 @@ def main():
         print("Loading:", MECHDB)
         print(mechanical.run_python_script(load_script))
         mechanical.run_python_script("element_size_m = " + repr(case_spec.element_size_m))
-        mechanical.run_python_script("load_value_n = " + repr(case_spec.load_value_n))
+        mechanical.run_python_script("pressure_value_pa = " + repr(case_spec.pressure_value_pa))
         mechanical.run_python_script("load_direction = " + repr(case_spec.load_direction))
         mechanical.run_python_script("constraint_name = " + repr(case_spec.constraint))
         print("Running:", STATIC_SCRIPT)

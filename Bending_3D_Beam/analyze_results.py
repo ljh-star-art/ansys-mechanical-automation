@@ -36,7 +36,7 @@ def main():
     print("Result file:", RESULT_FILE)
     print("Maximum deformation (m):", deformation)
     print("Maximum equivalent stress (Pa):", stress)
-    print("Load (N):", case_spec.load_value_n)
+    print("Pressure (Pa):", case_spec.pressure_value_pa)
     print("Load direction:", case_spec.load_direction)
     print("Constraint:", case_spec.constraint)
 

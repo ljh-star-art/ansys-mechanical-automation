@@ -2,7 +2,7 @@
   "case_name": "Bending_3D_Beam",
   "analysis_type": "static_structural",
   "element_size_m": 0.005,
-  "load_value_n": 1000,
+  "pressure_value_pa": 30000, 
   "load_direction": "negative_y",
   "constraint": "fixed_left_end",
   "stress_limit_pa": 2500000

@@ -19,6 +19,7 @@ D:\vibe_coding\Ansys\Ansys_Mechancal\mechanical-automation\Bending_3D_Beam
 | `pymechanical_model_test.py` | 外部 PyMechanical 模型加载和求解测试 |
 | `run_pipeline.py` | 一键执行求解和结果分析 |
 | `analyze_results.py` | 读取并判断最近一次结果 |
+| `inspect_mechanical_objects.py` | 诊断 Mechanical 分析树对象 |
 | `beam_files/` | ANSYS 内部数据库和缓存目录 |
 | `results/latest_results.json` | 项目级标准结果文件 |
 

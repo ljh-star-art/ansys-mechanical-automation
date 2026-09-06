@@ -1,7 +1,7 @@
 {
   "status": "success",
   "element_size": "0.005 [m]",
-  "load_value_n": "1000.0",
+  "pressure_value_pa": "30000.0",
   "load_direction": "negative_y",
   "constraint": "fixed_left_end",
   "max_total_deformation": "5.5714053933429455E-05 [m]",

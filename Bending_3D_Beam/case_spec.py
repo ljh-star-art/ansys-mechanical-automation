@@ -8,7 +8,7 @@ class CaseSpec:
     case_name: str
     analysis_type: str
     element_size_m: float
-    load_value_n: float
+    pressure_value_pa: float
     load_direction: str
     constraint: str
     stress_limit_pa: float
@@ -21,7 +21,7 @@ class CaseSpec:
             case_name=str(data["case_name"]),
             analysis_type=str(data["analysis_type"]),
             element_size_m=float(data["element_size_m"]),
-            load_value_n=float(data["load_value_n"]),
+            pressure_value_pa=float(data["pressure_value_pa"]),
             load_direction=str(data["load_direction"]),
             constraint=str(data["constraint"]),
             stress_limit_pa=float(data["stress_limit_pa"]),
@@ -35,8 +35,8 @@ class CaseSpec:
             raise ValueError("analysis_type must be static_structural")
         if self.element_size_m <= 0:
             raise ValueError("element_size_m must be greater than zero")
-        if self.load_value_n <= 0:
-            raise ValueError("load_value_n must be greater than zero")
+        if self.pressure_value_pa <= 0:
+            raise ValueError("pressure_value_pa must be greater than zero")
         if self.load_direction not in {"negative_x", "negative_y", "negative_z"}:
             raise ValueError("load_direction must be negative_x, negative_y, or negative_z")
         if self.constraint != "fixed_left_end":

@@ -1,9 +1,9 @@
 import os
 
 try:
-    load_value_n
+    pressure_value_pa
 except NameError:
-    load_value_n = 1000.0
+    pressure_value_pa = 30000.0
 try:
     load_direction
 except NameError:
@@ -23,6 +23,22 @@ mesh.ElementSize = element_size
 mesh.GenerateMesh()
 
 analysis = Model.Analyses[0]
+
+# Reuse the pressure object and its existing geometry selection.  This changes
+# only the magnitude; it does not guess or replace the loaded face.
+pressure = None
+for child in analysis.Children:
+    try:
+        if "Pressure" in str(child.DataModelObjectCategory):
+            pressure = child
+            break
+    except Exception:
+        pass
+if pressure is None:
+    raise RuntimeError("No Pressure object found in the analysis tree")
+pressure.Magnitude = Quantity(str(pressure_value_pa) + " [Pa]")
+print("Pressure applied (Pa):", pressure_value_pa)
+
 solution = analysis.Solution
 
 total_deformation = solution.AddTotalDeformation()
@@ -33,7 +49,7 @@ solution.EvaluateAllResults()
 
 print("Total Deformation:", total_deformation.Maximum)
 print("Equivalent Stress:", equivalent_stress.Maximum)
-print("Requested load (N):", load_value_n)
+print("Requested pressure (Pa):", pressure_value_pa)
 print("Requested load direction:", load_direction)
 print("Requested constraint:", constraint_name)
 
@@ -46,7 +62,7 @@ with open(result_file, "w") as f:
     f.write("{\n")
     f.write('  "status": "success",\n')
     f.write('  "element_size": "' + str(element_size) + '",\n')
-    f.write('  "load_value_n": "' + str(load_value_n) + '",\n')
+    f.write('  "pressure_value_pa": "' + str(pressure_value_pa) + '",\n')
     f.write('  "load_direction": "' + str(load_direction) + '",\n')
     f.write('  "constraint": "' + str(constraint_name) + '",\n')
     f.write('  "max_total_deformation": "' + str(total_deformation.Maximum) + '",\n')
