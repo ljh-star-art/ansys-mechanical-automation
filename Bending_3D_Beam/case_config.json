@@ -1,4 +1,4 @@
 {
-  "element_size_m": 0.005,
+  "element_size_m": 0.0025,
   "stress_limit_pa": 2500000
 }
